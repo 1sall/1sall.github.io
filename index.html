@@ -1,0 +1,254 @@
+<html>
+
+<head>
+    <title>
+        1
+    </title>
+    <script src="lib/photoswipe.min.js"></script>
+    <script src="lib/photoswipe-ui.min.js"></script>
+    <link rel="stylesheet" href="lib/photoswipe.css" />
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            display: flex;
+            align-items: stretch;
+        }
+
+        #logo-menu {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20vh;
+            height: 20vh;
+            max-width: 100px;
+            max-height: 100px;
+            background: #000;
+            color: #fff;
+        }
+
+        @media (orientation: landscape),
+        (min-width: 800px) {
+
+            #logo-menu {
+                width: 20vh;
+                height: 20vh;
+            }
+
+            @media (min-width: 400px) {
+                #logo-menu {
+                    font-size: 18px;
+                }
+            }
+
+            @media (min-width: 600px) {
+                #logo-menu {
+                    font-size: 18px;
+                }
+            }
+
+            @media (min-width: 800px) {
+                #logo-menu {
+                    font-size: 19px;
+                }
+            }
+
+            @media (min-width: 1000px) {
+                #logo-menu {
+                    font-size: 20px;
+                }
+            }
+
+            @media (min-width: 1200px) {
+                #logo-menu {
+                    font-size: 22px;
+                }
+            }
+
+            @media (min-width: 1400px) {
+                #logo-menu {
+                    font-size: 24px;
+                }
+            }
+        }
+
+        @media (orientation: portrait) and (max-width: 800px) {
+            #logo-menu {
+                width: 20vw;
+                height: 20vw;
+            }
+        }
+
+        #overlay-menu {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            bottom: 0px;
+            right: 0px;
+            background: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="logo-menu">1</div>
+    <!-- <div id="logo-menu"> -->
+    <!-- <div class="item logo">RTP</div> -->
+    <!-- <div class=""></div> -->
+    <!-- <div class=""></div> -->
+    <!-- <div class=""></div> -->
+    <!-- <div class="item">☰</div> -->
+    <!-- </div> -->
+    <div id="content">
+        <!-- <img src="art/IMG_2096.jpeg" /> -->
+        <!-- <img src="art/2c6893d1-790f-4be1-ad6e-6cb8865d247b.jpg" /> -->
+        <!-- <img src="art/(PNG-afbeelding, 1881 × 1059 pixels) - Geschaald (79%).png" /> -->
+        <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+            <!-- Background of PhotoSwipe. 
+                 It's a separate element as animating opacity is faster than rgba(). -->
+            <div class="pswp__bg"></div>
+
+            <!-- Slides wrapper with overflow:hidden. -->
+            <div class="pswp__scroll-wrap">
+
+                <!-- Container that holds slides. 
+                    PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                    Don't modify these 3 pswp__item elements, data is added later on. -->
+                <div class="pswp__container">
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                </div>
+
+                <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+                <div class="pswp__ui pswp__ui--hidden">
+
+
+                    <div class="pswp__caption">
+                        <div class="pswp__caption__center"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+<script>
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+
+    // build items array
+    var items = [
+        {
+            src: 'art/IMG_2468.jpeg',
+            w: 1536,
+            h: 2048,
+        },
+        {
+            src: 'art/IMG_2482.jpeg',
+            w: 2048,
+            h: 1536
+        },
+        {
+            src: 'art/IMG_2455.jpeg',
+            w: 1536,
+            h: 2048,
+        },
+        {
+            src: 'art/IMG_2457.jpeg',
+            w: 1536,
+            h: 2048,
+        },
+        {
+            src: 'art/IMG_2502.jpeg',
+            w: 2048,
+            h: 1536
+        },
+        {
+            src: 'art/IMG_2396.jpeg',
+            w: 1536,
+            h: 2048,
+        },
+        {
+            src: 'art/IMG_2414.jpeg',
+            w: 1536,
+            h: 2048,
+        },
+        {
+            src: 'art/IMG_2429.jpeg',
+            w: 2048,
+            h: 1536,
+        },
+        {
+            src: 'art/IMG_2441.jpeg',
+            w: 1536,
+            h: 2048,
+        },
+        {
+            src: 'art/IMG_2516.jpeg',
+            w: 1536,
+            h: 2048,
+        },
+        {
+            src: 'art/IMG_2527.jpeg',
+            w: 1536,
+            h: 2048,
+        },
+        {
+            src: 'art/IMG_2545.jpeg',
+            w: 2048,
+            h: 1536,
+        },
+        // {
+        //     src: 'art/IMG_2267.jpeg',
+        //     w: 1536,
+        //     h: 2048,
+        // },
+    ];
+
+    // define options (if needed)
+    var options = {
+        // optionName: 'option value'
+        // for example:
+        index: 0, // start at first slide
+        barsSize: { top: 0, bottom: 0 },
+        closeEl: false,
+        fullscreenEl: false,
+        shareEl: false,
+        counterEl: false,
+        arrowEl: true,
+        preloaderEl: false,
+        tapToToggleControls: true,
+
+        history: false,
+
+        // Mouse click on image should close the gallery,
+        // only when image is smaller than size of the viewport
+        clickToCloseNonZoomable: false,
+        escKey: false,
+        closeOnVerticalDrag: false,
+        closeOnScroll: false,
+        pinchToClose: false,
+        loop: true,
+        preload : [1,3],
+        closeElClasses: []
+    };
+
+    // Initializes and opens PhotoSwipe
+    var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+    console.log(gallery)
+    gallery.init();
+    gallery.ui.hideControls();
+
+</script>
+
+</html>
