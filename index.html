@@ -26,12 +26,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 20vh;
-            height: 20vh;
-            max-width: 100px;
-            max-height: 100px;
+            max-width: 200px;
+            max-height: 200px;
             background: #000;
             color: #fff;
+            z-index: 3;
+            font-size: 40px;
         }
 
         @media (orientation: landscape),
@@ -44,37 +44,37 @@
 
             @media (min-width: 400px) {
                 #logo-menu {
-                    font-size: 18px;
+                    font-size: 40px;
                 }
             }
 
             @media (min-width: 600px) {
                 #logo-menu {
-                    font-size: 18px;
+                    font-size: 40px;
                 }
             }
 
             @media (min-width: 800px) {
                 #logo-menu {
-                    font-size: 19px;
+                    font-size: 45px;
                 }
             }
 
             @media (min-width: 1000px) {
                 #logo-menu {
-                    font-size: 20px;
+                    font-size: 50px;
                 }
             }
 
             @media (min-width: 1200px) {
                 #logo-menu {
-                    font-size: 22px;
+                    font-size: 55px;
                 }
             }
 
             @media (min-width: 1400px) {
                 #logo-menu {
-                    font-size: 24px;
+                    font-size: 60px;
                 }
             }
         }
@@ -83,6 +83,7 @@
             #logo-menu {
                 width: 20vw;
                 height: 20vw;
+                font-size: 40px;
             }
         }
 
@@ -93,6 +94,9 @@
             bottom: 0px;
             right: 0px;
             background: white;
+        }
+        .pswp {
+            z-index: 2;
         }
     </style>
 </head>
