@@ -4,8 +4,8 @@
     <title>
         1
     </title>
-    <script src="lib/photoswipe.min.js"></script>
-    <script src="lib/photoswipe-ui.min.js"></script>
+    <script type="text/javascript" src="lib/photoswipe.min.js"></script>
+    <script type="text/javascript" src="lib/photoswipe-ui.min.js"></script>
     <link rel="stylesheet" href="lib/photoswipe.css" />
     <style>
         html,
@@ -14,6 +14,10 @@
             width: 100%;
             padding: 0px;
             margin: 0px;
+        }
+
+        a {
+            color: #000;
         }
 
         body {
@@ -88,7 +92,7 @@
             }
         }
 
-        #overlay-menu {
+        #menu {
             position: fixed;
             display: flex;
             flex-direction: column;
@@ -107,7 +111,7 @@
             justify-content: center;
         }
 
-        #overlay-menu .item {
+        #menu .item {
             height: 100px;
             display: flex;
             flex-direction: column;
@@ -115,13 +119,49 @@
             justify-content: center;
         }
 
-        #overlay-menu h1, #overlay-menu h3 {
+        #menu h1,
+        #menu h3 {
             margin: 0px;
             text-align: center;
         }
 
         .pswp {
             z-index: 2;
+        }
+
+        #content {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        #views {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: -1;
+        }
+
+        .view {
+            width: 100%;
+            height: 100%;
+        }
+
+        #home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #home div {
+            display: flex;
+            align-content: center;
         }
     </style>
 </head>
@@ -132,64 +172,162 @@
 
 <body>
     <div id="logo-menu">1</div>
-    <div id="overlay-menu">
-        <div class="item"><h1>1</h1><h3>All is one</h3></div>
-        <div class="item"><h1>RTP</h1><h3>Run the program.</h3></div>
-        <div class="item"><h1>SSL</h1><h3>Social Sim Lab</h3></div>
-        <div class="item"><h1>Contact</h1></div>
-    </div>
-    <!-- <div id="logo-menu"> -->
-    <!-- <div class="item logo">RTP</div> -->
-    <!-- <div class=""></div> -->
-    <!-- <div class=""></div> -->
-    <!-- <div class=""></div> -->
-    <!-- <div class="item">☰</div> -->
-    <!-- </div> -->
+    <div id="menu"></div>
+
     <div id="content">
-        <!-- <img src="art/IMG_2096.jpeg" /> -->
-        <!-- <img src="art/2c6893d1-790f-4be1-ad6e-6cb8865d247b.jpg" /> -->
-        <!-- <img src="art/(PNG-afbeelding, 1881 × 1059 pixels) - Geschaald (79%).png" /> -->
-        <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    </div>
 
-            <!-- Background of PhotoSwipe. 
-                 It's a separate element as animating opacity is faster than rgba(). -->
-            <div class="pswp__bg"></div>
+    <div id="views">
+        <div id="home" class="view">
+            <div>
+                <h1>
+                    1 is a <a href="#">concept</a><br />
+                    and a company<br />
+                    that creates<br />
+                    in the form of<br />
+                    <a href="#">art</a>
+                    and <a href="#">software</a>.<br />
+                </h1>
+            </div>
+        </div>
+        <div id="ssl" class="view">SSL</div>
+        <div id="contact" class="view">
+            <div>
+                <h1>
+                    Ochterveldstraat 89a<br />
+                    Rotterdam<br />
+                    The Netherlands<br />
+                    info@weare1.eco
+                </h1>
+            </div>
+        </div>
+        <div id="rtp" class="view">
+            <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
-            <!-- Slides wrapper with overflow:hidden. -->
-            <div class="pswp__scroll-wrap">
+                <!-- Background of PhotoSwipe. 
+                     It's a separate element as animating opacity is faster than rgba(). -->
+                <div class="pswp__bg"></div>
 
-                <!-- Container that holds slides. 
-                    PhotoSwipe keeps only 3 of them in the DOM to save memory.
-                    Don't modify these 3 pswp__item elements, data is added later on. -->
-                <div class="pswp__container">
-                    <div class="pswp__item"></div>
-                    <div class="pswp__item"></div>
-                    <div class="pswp__item"></div>
-                </div>
+                <!-- Slides wrapper with overflow:hidden. -->
+                <div class="pswp__scroll-wrap">
 
-                <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-                <div class="pswp__ui pswp__ui--hidden">
+                    <!-- Container that holds slides. 
+                        PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                        Don't modify these 3 pswp__item elements, data is added later on. -->
+                    <div class="pswp__container">
+                        <div class="pswp__item"></div>
+                        <div class="pswp__item"></div>
+                        <div class="pswp__item"></div>
+                    </div>
+
+                    <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+                    <div class="pswp__ui pswp__ui--hidden">
 
 
-                    <div class="pswp__caption">
-                        <div class="pswp__caption__center"></div>
+                        <div class="pswp__caption">
+                            <div class="pswp__caption__center"></div>
+                        </div>
+
                     </div>
 
                 </div>
 
             </div>
-
         </div>
     </div>
 </body>
 <script>
-    const pages = [
+
+    const origin = location.origin;
+
+    console.log(origin)
+
+    const views = [
         {
-            title: 'RTP',
-            
-        }
+            title: '1',
+            description: 'We Are 1',
+            elemId: 'home',
+            url: new URL(`${origin}/`),
+        },
+        {
+            title: 'rtp',
+            description: 'Run The Program',
+            elemId: 'rtp',
+            url: new URL(`${origin}/rtp`),
+        },
+        {
+            title: 'SSL',
+            description: 'Social Sim Lab',
+            elemId: 'ssl',
+            url: new URL(`${origin}/ssl`),
+        },
+        {
+            title: 'Contact',
+            logoText: '1',
+            description: '',
+            elemId: 'contact',
+            url: new URL(`${origin}/contact`),
+        },
     ];
 
+    const viewsElem = document.getElementById('views');
+    const contentElem = document.getElementById('content');
+    const menuElem = document.getElementById('menu');
+    const logoElem = document.getElementById('logo-menu');
+
+    // <div class="item">
+    //         <h1>1</h1>
+    //         <h3>All is one</h3>
+    //     </div>
+    //     <div class="item">
+    //         <h1>RTP</h1>
+    //         <h3>Run the program.</h3>
+    //     </div>
+    //     <div class="item">
+    //         <h1>SSL</h1>
+    //         <h3>Social Sim Lab</h3>
+    //     </div>
+    //     <div class="item">
+    //         <h1>Contact</h1>
+    //     </div>
+
+
+
+    let selectedViewIndex = null;
+
+    const selectView = nr => {
+        console.log('select view', nr)
+        selectedViewIndex = nr;
+        const view = views[selectedViewIndex];
+        document.title = view.title === 1 ? 1 : 1 + ' / ' + view.title;
+        logoElem.innerText = view.logoText || view.title;
+        if (contentElem.childNodes.length > 0) {
+            viewsElem.appendChild(contentElem.removeChild(contentElem.childNodes[0]));
+        }
+        contentElem.appendChild(document.getElementById(view.elemId));
+        closeNav();
+
+        if (location.href !== view.url.href) {
+            history.pushState(null, null, view.url.href);
+        }
+    }
+
+    for (let i = 0, l = views.length; i < l; ++i) {
+        const view = views[i];
+        const item = document.createElement('div');
+        const itemH1 = document.createElement('h1');
+        const itemH3 = document.createElement('h3');
+
+        item.appendChild(itemH1);
+        item.appendChild(itemH3);
+
+        itemH1.innerText = view.title;
+        itemH3.innerText = view.description;
+
+        item.addEventListener('click', () => selectView(i))
+
+        menuElem.appendChild(item)
+    }
 
     var pswpElement = document.querySelectorAll('.pswp')[0];
 
@@ -294,30 +432,33 @@
     var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
     console.log(gallery)
     gallery.init();
-    gallery.ui.hideControls();
+    // gallery.ui.hideControls();
 
 
     /* Open when someone clicks on the span element */
     function openNav() {
         console.log('open')
-        // document.getElementById('overlay-menu').style.width = "100%";
-        // document.getElementById('overlay-menu').style.height = "100%";
-        document.getElementById('overlay-menu').style.display = "flex";
-        document.getElementById('overlay-menu').style.opacity = 1;
+        // document.getElementById('menu').style.width = "100%";
+        // document.getElementById('menu').style.height = "100%";
+        menuElem.style.display = "flex";
+        menuElem.style.opacity = 1;
     }
 
     /* Close when someone clicks on the "x" symbol inside the overlay */
     function closeNav() {
-        // document.getElementById('overlay-menu').style.width = "0%";
-        // document.getElementById('overlay-menu').style.height = "0%";
-        document.getElementById('overlay-menu').style.display = "none";
-        document.getElementById('overlay-menu').style.opacity = 0;
+        // document.getElementById('menu').style.width = "0%";
+        // document.getElementById('menu').style.height = "0%";
+        menuElem.style.display = "none";
+        menuElem.style.opacity = 0;
     }
 
 
     document.getElementById('logo-menu').addEventListener('click', openNav);
 
-    document.getElementById('overlay-menu').addEventListener('click', closeNav);
+    document.getElementById('menu').addEventListener('click', closeNav);
+
+    const initView = views.findIndex( v => v.url.href === location.href) || 0;
+    selectView(initView);
 
 </script>
 
