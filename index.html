@@ -116,8 +116,9 @@
         }
 
         #menu .item {
-            height: 150px;
+            /* height: 150px; */
             width: 100%;
+            max-height: 200px;
             display: flex;
             flex-direction: column;
             align-content: center;
@@ -310,6 +311,13 @@
             elemId: 'contact',
             url: new URL(`${origin}/contact`),
         },
+        {
+            displayInMenu: false,
+            title: 'Concept',
+            logoText: '1',
+            elemId: 'concept',
+            url: new URL(`${origin}/concept`),
+        },
     ];
 
     const viewsElem = document.getElementById('views');
@@ -354,8 +362,11 @@
         }
     }
 
-    for (let i = 0, l = views.length; i < l; ++i) {
-        const view = views[i];
+    const menuViews = views.filter( v => v.displayInMenu !== false);
+
+    for (let i = 0, l = menuViews.length; i < l; ++i) {
+        const view = menuViews[i];
+
         const item = document.createElement('div');
         const itemH1 = document.createElement('h1');
         const itemH3 = document.createElement('h3');
@@ -363,6 +374,8 @@
         item.appendChild(itemH1);
         item.appendChild(itemH3);
         item.classList.add('item');
+        item.style.height = 100 / ( menuViews.length - 1 ) + '%';
+
 
         itemH1.innerText = view.title;
         itemH3.innerText = view.description;
