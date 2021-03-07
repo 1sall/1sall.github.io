@@ -15,6 +15,9 @@
             padding: 0px;
             margin: 0px;
         }
+        * {
+            box-sizing: border-box;
+        }
 
         a {
             color: #000;
@@ -174,7 +177,24 @@
         #home.view div,
         #contact.view div {
             display: flex;
+            flex-direction: column;
             align-content: center;
+        }
+
+        #groupsim.view {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;;
+        }
+
+        .frame {
+            width: 800px;
+            max-width: 100%;
+            padding: 200px 20px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            align-content: flex-start;
+            justify-content: flex-start;
         }
     </style>
 </head>
@@ -194,20 +214,20 @@
         <div id="home" class="view">
             <div>
                 <h1>
-                    1 is a <a href="#">concept</a><br />
+                    1 is a <a href="/">concept</a><br />
                     and a company<br />
                     that creates<br />
                     in the form of<br />
-                    <a href="#">art</a>
-                    and <a href="#">software</a>.<br />
+                    <a href="rtp">art</a>
+                    and <a href="groupsim">software</a>.<br />
                 </h1>
             </div>
         </div>
         <div id="groupsim" class="view">
             <div class="frame">
-                <h2>
+                <h1>
                     GroupSim
-                </h2>
+                </h1>
                 Project explanation coming soon.
             </div>
         </div>
