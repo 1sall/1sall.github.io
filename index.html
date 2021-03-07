@@ -476,7 +476,7 @@
     if(path) {
       localStorage.removeItem('path');
       const initViewIndex = views.findIndex( v => v.url.href === path) || 0;
-      selectView(initView);
+      selectView(initViewIndex);
     }
     else {
         selectView(0);
