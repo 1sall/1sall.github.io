@@ -308,7 +308,7 @@
     let selectedViewIndex = null;
 
     const selectView = nr => {
-        console.log('select view', nr)
+        console.log('selected view', nr)
         selectedViewIndex = nr;
         const view = views[selectedViewIndex];
         document.title = view.title === 1 ? 1 : 1 + ' / ' + view.title;
