@@ -126,7 +126,7 @@
         }
 
         #menu {
-            font-size: 2em;
+            font-size: 1.6em;
         }
 
         #menu h1,
@@ -164,13 +164,13 @@
             height: 100%;
         }
 
-        #home {
+        #home.view, #contact.view {
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        #home div {
+        #home.view div, #contact.view div {
             display: flex;
             align-content: center;
         }
@@ -267,10 +267,10 @@
             url: new URL(`${origin}/rtp`),
         },
         {
-            title: 'PeopleSim',
-            logoText: 'PS',
-            description: 'Social Simulation',
-            elemId: 'ssl',
+            title: 'GroupSim',
+            logoText: 'GS',
+            description: 'Social Simulation Software',
+            elemId: 'groupsim',
             url: new URL(`${origin}/ssl`),
         },
         {
