@@ -112,13 +112,21 @@
         }
 
         #menu .item {
-            height: 100px;
+            height: 150px;
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-content: center;
             justify-content: center;
+            cursor: pointer;
+        }
+        #menu .item:hover {
+            background: rgba(100,100,100,0.1);
         }
 
+        #menu {
+            font-size: 2em;
+        }
         #menu h1,
         #menu h3 {
             margin: 0px;
@@ -144,6 +152,7 @@
             top: 0px;
             width: 100%;
             height: 100%;
+            overflow: hidden;
             opacity: 0;
             z-index: -1;
         }
@@ -240,12 +249,12 @@
 
     const origin = location.origin;
 
-    console.log(origin)
+    // console.log(origin)
 
     const views = [
         {
             title: '1',
-            description: 'We Are 1',
+            description: 'Home',
             elemId: 'home',
             url: new URL(`${origin}/`),
         },
@@ -256,8 +265,9 @@
             url: new URL(`${origin}/rtp`),
         },
         {
-            title: 'SSL',
-            description: 'Social Sim Lab',
+            title: 'PeopleSim',
+            logoText: 'PS',
+            description: 'Social Simulation',
             elemId: 'ssl',
             url: new URL(`${origin}/ssl`),
         },
@@ -320,6 +330,7 @@
 
         item.appendChild(itemH1);
         item.appendChild(itemH3);
+        item.classList.add('item');
 
         itemH1.innerText = view.title;
         itemH3.innerText = view.description;
@@ -430,14 +441,14 @@
 
     // Initializes and opens PhotoSwipe
     var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
-    console.log(gallery)
+    // console.log(gallery)
     gallery.init();
     // gallery.ui.hideControls();
 
 
     /* Open when someone clicks on the span element */
     function openNav() {
-        console.log('open')
+        // console.log('open')
         // document.getElementById('menu').style.width = "100%";
         // document.getElementById('menu').style.height = "100%";
         menuElem.style.display = "flex";
@@ -457,8 +468,19 @@
 
     document.getElementById('menu').addEventListener('click', closeNav);
 
-    const initView = views.findIndex( v => v.url.href === location.href) || 0;
-    selectView(initView);
+    // this would work on our vps with redirection, not on GP
+    // const initView = views.findIndex( v => v.url.href === location.href) || 0;
+
+    const path = localStorage.getItem('path');
+
+    if(path) {
+      localStorage.removeItem('path');
+      const initViewIndex = views.findIndex( v => v.url.href === path) || 0;
+      selectView(initView);
+    }
+    else {
+        selectView(0);
+    }
 
 </script>
 
