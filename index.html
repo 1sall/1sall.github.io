@@ -164,13 +164,15 @@
             height: 100%;
         }
 
-        #home.view, #contact.view {
+        #home.view,
+        #contact.view {
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        #home.view div, #contact.view div {
+        #home.view div,
+        #contact.view div {
             display: flex;
             align-content: center;
         }
@@ -201,7 +203,14 @@
                 </h1>
             </div>
         </div>
-        <div id="ssl" class="view">SSL</div>
+        <div id="groupsim" class="view">
+            <div class="frame">
+                <h2>
+                    GroupSim
+                </h2>
+                Project explanation coming soon.
+            </div>
+        </div>
         <div id="contact" class="view">
             <div>
                 <h1>
@@ -271,7 +280,7 @@
             logoText: 'GS',
             description: 'Social Simulation Software',
             elemId: 'groupsim',
-            url: new URL(`${origin}/ssl`),
+            url: new URL(`${origin}/groupsim`),
         },
         {
             title: 'Contact',
@@ -480,12 +489,12 @@
         console.log('LS path', path)
         localStorage.removeItem('path');
         const viewIndexForLSPath = views.findIndex(v => v.url.href === path);
-        if ( viewIndexForLSPath !== -1 ) {
+        if (viewIndexForLSPath !== -1) {
             initViewIndex = viewIndexForLSPath;
         }
     }
     selectView(initViewIndex);
-    
+
 </script>
 
 </html>
