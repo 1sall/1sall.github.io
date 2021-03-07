@@ -120,13 +120,15 @@
             justify-content: center;
             cursor: pointer;
         }
+
         #menu .item:hover {
-            background: rgba(100,100,100,0.1);
+            background: rgba(100, 100, 100, 0.1);
         }
 
         #menu {
             font-size: 2em;
         }
+
         #menu h1,
         #menu h3 {
             margin: 0px;
@@ -472,16 +474,18 @@
     // const initView = views.findIndex( v => v.url.href === location.href) || 0;
 
     const path = localStorage.getItem('path');
+    let initViewIndex = 0;
 
-    if(path) {
-      localStorage.removeItem('path');
-      const initViewIndex = views.findIndex( v => v.url.href === path) || 0;
-      selectView(initViewIndex);
+    if (path) {
+        console.log('LS path', path)
+        localStorage.removeItem('path');
+        const viewIndexForLSPath = views.findIndex(v => v.url.href === path);
+        if ( viewIndexForLSPath !== -1 ) {
+            initViewIndex = viewIndexForLSPath;
+        }
     }
-    else {
-        selectView(0);
-    }
-
+    selectView(initViewIndex);
+    
 </script>
 
 </html>
