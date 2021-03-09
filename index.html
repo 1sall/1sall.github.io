@@ -16,6 +16,7 @@
             padding: 0px;
             margin: 0px;
         }
+
         * {
             box-sizing: border-box;
         }
@@ -27,6 +28,10 @@
         body {
             display: flex;
             align-items: stretch;
+        }
+
+        h1 {
+            line-height: 1.4em;
         }
 
         #logo-menu {
@@ -131,7 +136,7 @@
         }
 
         #menu {
-            font-size: 1.6em;
+            font-size: 1.4em;
         }
 
         #menu h1,
@@ -186,17 +191,19 @@
         #groupsim.view {
             display: flex;
             align-items: flex-start;
-            justify-content: center;;
+            justify-content: center;
+            ;
         }
 
         .frame {
             width: 800px;
             max-width: 100%;
-            padding: 200px 20px 20px 20px;
+            min-height: 90%;
+            padding: 50px 20px 20px 20px;
             display: flex;
             flex-direction: column;
-            align-content: flex-start;
-            justify-content: flex-start;
+            align-items: flex-start;
+            justify-content: center;
         }
     </style>
 </head>
@@ -218,8 +225,9 @@
                 <h1>
                     We are <strong>1</strong>,<br />
                     a collab of two,<br />
-                    that creates <a href="rtp">art</a><br />
-                    and <a href="groupsim">software</a>.<br />
+                    creating <a href="rtp">art</a><br />
+                    and <a href="groupsim">software</a><br />
+                    for you.
                 </h1>
             </div>
         </div>
@@ -228,7 +236,19 @@
                 <h1>
                     GroupSim
                 </h1>
-                Project explanation coming soon.
+                <p>
+                    Virtually every human is embedded in and dependent on social structures.
+                    And yet, our understanding of and control over these structures is limited at best.
+                    With GroupSim we seek control over the social structures we are a part of.
+                </p>
+                <!-- <p>
+                    Our approach is to simulate these social structures using research from cognitive psychology and sociology
+                    in multi-agent simulations. We could then, in theory, use AI to "efficiently" search the simulation space 
+                    and optimize the simulated structure.
+                </p>
+                <p>
+                    We planning to develop GroupSim in Rust and Javascript and working open source.
+                </p> -->
             </div>
         </div>
         <div id="contact" class="view">
@@ -360,7 +380,7 @@
         }
     }
 
-    const menuViews = views.filter( v => v.displayInMenu !== false);
+    const menuViews = views.filter(v => v.displayInMenu !== false);
 
     for (let i = 0, l = menuViews.length; i < l; ++i) {
         const view = menuViews[i];
@@ -372,7 +392,7 @@
         item.appendChild(itemH1);
         item.appendChild(itemH3);
         item.classList.add('item');
-        item.style.height = 100 / ( menuViews.length - 1 ) + '%';
+        item.style.height = 100 / (menuViews.length - 1) + '%';
 
 
         itemH1.innerText = view.title;
